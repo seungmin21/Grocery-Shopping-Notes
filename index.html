@@ -18,6 +18,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-direction: column;
     }
   </style>
 </head>
@@ -37,11 +38,14 @@
   <script>
     const content = document.getElementById("content");
     const textBar = document.getElementById("text-bar");
-    console.dir(textBar);
+    // console.dir(textBar);
     // console.dir(content);
 
     textBar.addEventListener('keypress', (e) => {
       if (e.key === "Enter") {
+        let element = document.createElement("input");
+        element.type = "checkbox";
+        content.appendChild(element);
         content.innerText = textBar.value;
       } else {
         console.log("엔터기능이 작동하지 않습니다.")
