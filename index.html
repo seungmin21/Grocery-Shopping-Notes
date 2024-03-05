@@ -40,6 +40,10 @@
       width: 15vw;
       height: 30vh;
     }
+
+    .strike-through {
+      text-decoration: line-through;
+    }
   </style>
 </head>
 
@@ -58,7 +62,7 @@
   <script>
     const content = document.getElementById("content");
     const textBar = document.getElementById("text-bar");
-    const sendMessage = document.getElementById("send-message")
+    const sendMessage = document.getElementById("send-message");
     // console.dir(textBar);
     // console.dir(content);
 
@@ -69,6 +73,16 @@
       // checkbox를 생성합니다.
       let checkbox = document.createElement("input");
       checkbox.type = "checkbox";
+
+      // checkbox의 클릭 이벤트를 설정합니다.
+      checkbox.addEventListener('click', event => {
+        // 확인된 checkbox의 체크 여부를 확인하여 처리합니다.
+        if (event.target.checked) {
+          wrappingTag.classList.add('strike-through');
+        } else {
+          wrappingTag.classList.remove('strike-through');
+        }
+      });
 
       // 생성한 checkbox를 div의 자식으로 추가합니다.
       wrappingTag.appendChild(checkbox);
