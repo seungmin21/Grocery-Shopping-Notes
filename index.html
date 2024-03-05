@@ -64,14 +64,14 @@
 
     function tagTextCreate() {
       // div 요소를 생성합니다.
-      let container = document.createElement("div");
+      let wrappingTag = document.createElement("div");
 
       // checkbox를 생성합니다.
       let checkbox = document.createElement("input");
       checkbox.type = "checkbox";
 
       // 생성한 checkbox를 div의 자식으로 추가합니다.
-      container.appendChild(checkbox);
+      wrappingTag.appendChild(checkbox);
 
       // 텍스트를 표시할 span 요소를 생성합니다.
       let textTag = document.createElement("span");
@@ -79,10 +79,10 @@
       textTag.style.marginLeft = "10px";
 
       // 생성한 텍스트 요소를 div의 자식으로 추가합니다.
-      container.appendChild(textTag);
+      wrappingTag.appendChild(textTag);
 
       // content에 div를 추가합니다.
-      content.appendChild(container);
+      content.appendChild(wrappingTag);
 
       // textBar의 값을 초기화합니다.
       textBar.value = "";
