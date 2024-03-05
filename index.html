@@ -42,15 +42,20 @@
     // console.dir(content);
 
     textBar.addEventListener('keypress', (e) => {
-      if (e.key === "Enter") {
-        let element = document.createElement("input");
-        element.type = "checkbox";
-        content.appendChild(element);
-        content.innerText = textBar.value;
-      } else {
-        console.log("엔터기능이 작동하지 않습니다.")
-      }
-    })
+  if (e.key === "Enter") {
+    // input 부터 타입까지 생성
+    let checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+
+    // content의 자식으로 checkbox 변수를 지정
+    content.appendChild(checkbox);
+    // 연결점을 만들기 위해서 자식으로 지정
+    content.appendChild(document.createTextNode(textBar.value));
+
+  } else {
+    console.log("엔터기능이 작동하지 않습니다.")
+  }
+})
 
   </script>
 </body>
