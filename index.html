@@ -35,6 +35,11 @@
       display: flex;
       flex-wrap: wrap;
     }
+
+    .contentPlaceSize {
+      width: 15vw;
+      height: 30vh;
+    }
   </style>
 </head>
 
@@ -43,7 +48,7 @@
     <!-- 로고 -->
     <div></div>
     <!-- 내용 -->
-    <div id="content"></div>
+    <div id="content" class="contentPlaceSize"></div>
     <!-- 검색칸 -->
     <div>
       <textarea type="text" id="text-bar" cols="50" rows="3" placeholder="Message..."></textarea>
@@ -58,16 +63,31 @@
     // console.dir(content);
 
     function tagTextCreate() {
-      // input 부터 타입까지 생성
+      // div 요소를 생성합니다.
+      let container = document.createElement("div");
+
+      // checkbox를 생성합니다.
       let checkbox = document.createElement("input");
       checkbox.type = "checkbox";
-      // content의 자식으로 checkbox 변수를 지정
-      content.appendChild(checkbox);
-      // 연결점을 만들기 위해서 자식으로 지정
-      content.appendChild(document.createTextNode(textBar.value));
 
+      // 생성한 checkbox를 div의 자식으로 추가합니다.
+      container.appendChild(checkbox);
+
+      // 텍스트를 표시할 span 요소를 생성합니다.
+      let textTag = document.createElement("span");
+      textTag.textContent = textBar.value;
+      textTag.style.marginLeft = "10px";
+
+      // 생성한 텍스트 요소를 div의 자식으로 추가합니다.
+      container.appendChild(textTag);
+
+      // content에 div를 추가합니다.
+      content.appendChild(container);
+
+      // textBar의 값을 초기화합니다.
       textBar.value = "";
     }
+
 
     textBar.addEventListener("keypress", (e) => {
       if (e.key === "Enter" && textBar.value.trim() !== "") {
