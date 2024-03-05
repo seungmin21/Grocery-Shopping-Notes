@@ -38,6 +38,7 @@
   <script>
     const content = document.getElementById("content");
     const textBar = document.getElementById("text-bar");
+    const sendMessage = document.getElementById("send-message")
     // console.dir(textBar);
     // console.dir(content);
 
@@ -54,7 +55,7 @@
       textBar.value = "";
     }
 
-    textBar.addEventListener('keypress', (e) => {
+    textBar.addEventListener("keypress", (e) => {
       if (e.key === "Enter") {
         tagTextCreate()
       } else {
@@ -62,7 +63,7 @@
       }
     })
 
-
+    
   </script>
 </body>
 
