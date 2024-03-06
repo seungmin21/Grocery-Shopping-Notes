@@ -37,8 +37,8 @@
     }
 
     .contentPlaceSize {
-      width: 15vw;
-      height: 30vh;
+      width: 40vw;
+      height: 60vh;
     }
 
     .strike-through {
@@ -69,10 +69,13 @@
     function tagTextCreate() {
       // div 요소를 생성합니다.
       let wrappingTag = document.createElement("div");
+      wrappingTag.style.height = "45px"
 
       // checkbox를 생성합니다.
       let checkbox = document.createElement("input");
       checkbox.type = "checkbox";
+      checkbox.style.width = "25px"
+      checkbox.style.height = "25px"
 
       // checkbox의 클릭 이벤트를 설정합니다.
       checkbox.addEventListener('click', event => {
@@ -87,10 +90,12 @@
       // 생성한 checkbox를 div의 자식으로 추가합니다.
       wrappingTag.appendChild(checkbox);
 
-      // 텍스트를 표시할 span 요소를 생성합니다.
-      let textTag = document.createElement("span");
+      // 텍스트를 표시할 div 요소를 생성합니다.
+      let textTag = document.createElement("div");
       textTag.textContent = textBar.value;
-      textTag.style.marginLeft = "10px";
+      textTag.style.marginLeft = "40px";
+      textTag.style.fontSize = "20px"
+      textTag.style.transform = "translateY(-30px)"
 
       // 생성한 텍스트 요소를 div의 자식으로 추가합니다.
       wrappingTag.appendChild(textTag);
